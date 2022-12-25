@@ -9,7 +9,6 @@ const winston = require("winston");
             new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
             new winston.transports.File({ filename: 'logs/combined.log',level: 'debug'}),
         ],
-
     });
 
     if(process.env.NODE_ENV === 'development'){

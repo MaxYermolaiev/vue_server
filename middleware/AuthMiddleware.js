@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const secret = process.env.JWT;
-const validator = require('./credentials_validator');
+const validator = require('./validator');
 
 const user_authorization= (req, res, next) => {
     const {password, email, phone, firstname, lastname} = req.body;
@@ -8,8 +8,8 @@ const user_authorization= (req, res, next) => {
         return res.status(400).json({message: 'Invalid credentials'});
     }
     let isError = validator.test({password, email, phone, firstname, lastname});
-    if (isError) {
-        return res.status(400).json({message: 'Credentials did not pass validation...check yor data'});
+    if (isError.length) {
+        return res.status(400).json({message: isError.join(',')});
     }
     next();
 }

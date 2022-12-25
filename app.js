@@ -24,10 +24,10 @@ app.use(limiter);
 
 //app.use(express.static(path.join(__dirname, 'public')));
 //apply general and handle rest not existing routs
-app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+/*app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-});
+});*/
 app.use('/api', router);
 app.all('/api\*',(req,res,next)=>{
     const error = new CustomError();
@@ -45,7 +45,7 @@ app.use((error,req,res,next)=>{
 });
 bindErrorHandlers(logger);//bind unhandled rejection errors in promises
 
-//app runinng
+//app running
 let timer;
 async function riseServer(){
     try{

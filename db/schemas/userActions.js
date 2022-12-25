@@ -8,6 +8,8 @@ const userActions = new Schema({
         description: {type: String, require: false},
         completed: {type: Boolean, default: false},
         priority: {type: String, default: false},
+        executor_name: {type: String, default:null},
+        creator_name: {type: String, default:null},
         executor: {type: Types.ObjectId, ref: 'userData'},
         assigned_by: {type: Types.ObjectId, ref: 'userData'}
 })

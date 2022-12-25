@@ -17,7 +17,6 @@ const db_init=async ()=>{
             if(error){
                 throw new CustomError("DB is unreachable or some bug occurred");
             }
-            console.log("connected")
         });
 }
 

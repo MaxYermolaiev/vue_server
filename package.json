@@ -6,11 +6,10 @@
   "scripts": {
     "start": "node app.js",
     "server": "SET NODE_ENV=development & nodemon ./app.js",
-    "client": "npm run serve --prefix client",
+    "client": "npm run serve  --prefix ../client",
     "start_dev": "concurrently \"npm run  client\" \"npm run  server\"",
-    "client:install": "npm install --prefix client",
-    "client:build": "npm run build --prefix client",
-    "start_prod": " nodemon ./app.js"
+    "client:install": "npm install --prefix ../client",
+    "client:build": "npm run build --prefix ../client"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
